@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Hoang Anh - Embedded AI Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 0;
+            color: white;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+            margin-bottom: 20px;
+        }
+
+        .contact-quick {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .contact-quick a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-quick a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #ff6b6b;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .experience-item {
+            margin-bottom: 35px;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+            background: #f8f9ff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.1);
+        }
+
+        .experience-title {
+            color: #667eea;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .experience-company {
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .experience-date {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+
+        .experience-item li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 12px;
+        }
+
+        .publications {
+            display: grid;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .publication-card {
+            border: 1px solid #e0e6ed;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9ff, #fff);
+        }
+
+        .publication-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .publication-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .publication-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .publication-title a:hover {
+            text-decoration: underline;
+        }
+
+        .publication-venue {
+            color: #666;
+            font-style: italic;
+        }
+
+        .awards-grid {
+            display: grid;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .award-item {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-right: 15px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .education-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .education-card .degree {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .education-card .date {
+            opacity: 0.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            color: white;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 25px;
+                margin: 20px 0;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-quick {
+                gap: 15px;
+            }
+
+            .contact-quick a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-img">
+                🤖
+            </div>
+            <h1>Nguyen Hoang Anh</h1>
+            <p class="subtitle">Embedded AI Engineer</p>
+            <div class="contact-quick">
+                <a href="mailto:nguyenhoanganht3@gmail.com">📧 Email</a>
+                <a href="https://www.linkedin.com/in/anhhoang23/" target="_blank">💼 LinkedIn</a>
+                <a href="tel:+84344723585">📱 Phone</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                I am an experienced Embedded AI Engineer with a strong background in deploying deep learning models on edge devices. 
+                With over 3 years of hands-on experience in computer vision, person re-identification, and TinyML, I specialize in 
+                optimizing AI models for resource-constrained environments. My expertise spans from research and development to 
+                real-world production deployment on embedded systems.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 15px;">
+                Currently working at FPT Software, I focus on action recognition and vision-language model deployment on edge devices, 
+                leveraging cutting-edge technologies like NVIDIA DeepStream, TensorRT, and various model optimization techniques.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-card">
+                <h3>Hanoi University of Science and Technology</h3>
+                <div class="degree">Bachelor of Electronics - Telecommunications Engineering</div>
+                <div class="date">September 2019 – February 2024</div>
+                <div style="margin-top: 15px; font-weight: bold;">🏆 Degree: Excellent</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-company">FPT SOFTWARE</div>
+                <div class="experience-date">March 2024 – Present</div>
+                
+                <div class="experience-title">Action Recognition on Edge Devices</div>
+                <ul>
+                    <li>Designed and implemented AI-based action recognition applications using image/video input for human activity classification</li>
+                    <li>Deployed optimized deep learning models on Jetson Orin Nano using NVIDIA DeepStream and TensorRT to maximize inference speed and accuracy</li>
+                    <li>Conducted end-to-end development on Linux, including algorithm implementation, API integration, and performance tuning on embedded systems</li>
+                </ul>
+
+                <div class="experience-title" style="margin-top: 20px;">Vision-Language Model Deployment on Edge</div>
+                <ul>
+                    <li>Developed and integrated vision-language models (VLMs) such as Qwen-VL, VILA, and Gemma into Linux-based systems</li>
+                    <li>Applied model quantization techniques using TensorRT-LLM and llama.cpp to enhance efficiency for resource-constrained environments</li>
+                    <li>Designed orchestrator–worker architecture for scalable multi-agent VLM workflows, supporting full development lifecycle</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-company">VNPT TECHNOLOGY</div>
+                <div class="experience-title">Deep Learning Model Deployment on Edge Camera</div>
+                <div class="experience-date">August 2022 – March 2024</div>
+                <ul>
+                    <li>Deployed object detection and sound recognition models on edge cameras in real-world production environments</li>
+                    <li>Researched and applied deep learning model compression techniques such as quantization and pruning</li>
+                    <li>Deployed models on embedded devices using frameworks including NCNN, MNN, Darknet, etc.</li>
+                    <li>Explored TinyML frameworks such as TensorFlow Lite and Edge Impulse for deploying lightweight machine learning models</li>
+                    <li>Cross-compiled models for deployment on various embedded architectures including MIPS and RISC-V</li>
+                    <li>Successfully deployed models on embedded devices ranging from 10 - 600KB</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-company">COMVIS LABORATORY</div>
+                <div class="experience-title">Person Re-identification in Surveillance Camera Network</div>
+                <div class="experience-date">October 2021 - May 2024</div>
+                <ul>
+                    <li>Led research on "Person Re-identification in Surveillance Camera Systems"</li>
+                    <li>Research, implement, and evaluate existing person re-identification algorithms worldwide</li>
+                    <li>Deploy CNN models: VGG16, ResNet50, Vision Transformer, and analyze results</li>
+                    <li>Develop optimized algorithms for the "Earth Mover's Distance" problem, improving by nearly 10% compared to the SOTA</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🐍 Programming & Tools</h3>
+                    <p>Python, C/C++, OpenCV, TensorFlow, TensorRT, ONNX, Triton Inference Server, DeepStream</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📱 Embedded Frameworks</h3>
+                    <p>TinyML, NCNN, MNN, TNN, TensorFlow Lite, Edge Impulse</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🤖 Generative AI</h3>
+                    <p>VLM, LLM, TensorRT-LLM, llama.cpp, AWQ, GGUF, Qwen-VL, VILA, Gemma</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🔧 Edge Devices</h3>
+                    <p>Jetson Nano/Orin, Raspberry Pi, Orange Pi, Luckfox Pico, Microcontrollers, MIPS, RISC-V</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Published Works</h2>
+            <div class="publications">
+                <div class="publication-card">
+                    <div class="publication-title">
+                        <a href="https://ieeexplore.ieee.org/document/9924686" target="_blank">
+                            Exploiting Matching Local Information for Person Re-Identification
+                        </a>
+                    </div>
+                    <div class="publication-venue">
+                        2022 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)
+                    </div>
+                </div>
+                <div class="publication-card">
+                    <div class="publication-title">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S2666827025000465" target="_blank">
+                            EMD-based Local Matching for Occluded Person Re-Identification
+                        </a>
+                    </div>
+                    <div class="publication-venue">
+                        Machine Learning with Applications, Elsevier, Volume 20, June 2025, Article ID: 100663
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Awards & Achievements</h2>
+            <div class="awards-grid">
+                <div class="award-item">
+                    🏆 Outstanding graduation project with the highest absolute score awarded by the SEEE-HUST in 2024
+                </div>
+                <div class="award-item">
+                    🥇 First prize in the University Creativity and Entrepreneurship Competition organized by HUST in 2023
+                </div>
+                <div class="award-item">
+                    🥉 Third prize in the Research Science Student Competition, School of Electrical Engineering, HUST 2023
+                </div>
+                <div class="award-item">
+                    🇯🇵 Top 2 best students at SEEE-HUST receive scholarships for exchange program at Shibaura Institute of Technology, Japan
+                </div>
+                <div class="award-item">
+                    💰 Top 20 best students in Vietnam received Panasonic Scholarship in 2023
+                </div>
+                <div class="award-item">
+                    🎓 Lawrence S. Ting scholarship for determined students: 3 times
+                </div>
+                <div class="award-item">
+                    📚 Excellent Study Encouragement Scholarship from HUST: 5 times
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Languages</h2>
+            <div style="background: #f8f9ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                    <span style="font-size: 1.5rem;">🇺🇸</span>
+                    <div>
+                        <strong>English</strong> - Proficient in technical English
+                    </div>
+                </div>
+                <div style="margin-left: 40px; color: #666;">
+                    Equivalent to IELTS 5.5
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Nguyen Hoang Anh. Embedded AI Engineer | Made with ❤️ and GitHub Pages</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                "Bringing AI to the Edge, One Model at a Time"
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
